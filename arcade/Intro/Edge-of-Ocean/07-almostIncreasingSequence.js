@@ -41,3 +41,26 @@ function helloWorld(name) {
 }
 
 ************************ */
+
+const solution = sequence => {
+    // handle first element 
+    if(sequence.length===0) return true;
+    for(let i=1; i<sequence.length; i++) {
+        let case1 = true, case2 = true;;
+        if(sequence[i]<=sequence[i-1]) {
+            // try removing current element and check
+            case1 = isArrayIncreasing( sequence.filter((n,index)=>index!==i) )
+            // try removing previous element and check
+            case2 = isArrayIncreasing( sequence.filter((n,index)=>index!==(i-1) ) )
+            if(case1===false && case2===false) return false;
+        }
+    }
+    return true;
+}
+
+const isArrayIncreasing = arr => {
+    for(let i=1; i<arr.length; i++) {
+        if(arr[i]<=arr[i-1]) return false;
+    }
+    return true;
+}
