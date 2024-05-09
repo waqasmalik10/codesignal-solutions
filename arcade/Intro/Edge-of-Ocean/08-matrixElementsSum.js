@@ -69,7 +69,7 @@ const solution = matrix => {
                 // house is haunted. 
                 if(i<matrix.length-1) { // out of bound check
                     for(let k=(i+1); k<matrix.length; k++) {
-                        if( matrix[k][j] ===0 ) break;
+                        if( matrix[k][j] ===0 ) break; // if house below is also hanuted. the houses below that haunted house will be checked in next iteration. so breaking here to avoid duplicate additions in sum.
                         extraHauntedList.push( matrix[k][j] )
                     }
                 }
