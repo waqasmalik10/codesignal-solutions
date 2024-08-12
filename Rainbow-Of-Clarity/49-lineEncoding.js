@@ -37,3 +37,17 @@ function helloWorld(name) {
     return "Hello, " + name;
 }
 */
+const solution = s => {
+    const disjoints = [];
+    let tmp = s[0];
+    for(let i=1; i<s.length; i++) {
+        if(tmp[0]==s[i]) {
+            tmp = tmp + s[i];
+        } else {
+            disjoints.push(tmp);
+            tmp = s[i];
+        }
+    }
+    disjoints.push(tmp);
+    return disjoints.map(str => (str.length>1 ? str.length : "")+str[0]).join("");
+}
